@@ -39,13 +39,11 @@ def main():
       results = holistic.process(image)
       image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
       
-      # mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
       mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS)
-      # mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS)
 
       h,w,_ = image.shape
-      if results.right_hand_landmarks:
-          
+
+      if results.right_hand_landmarks:    
           thumb_tip = results.right_hand_landmarks.landmark[4]
           index_tip = results.right_hand_landmarks.landmark[8]
 
