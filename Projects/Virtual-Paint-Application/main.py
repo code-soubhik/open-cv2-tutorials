@@ -86,9 +86,10 @@ mode_panel: list[ModePanelInterface] = [
 ]
 
 instructions = [
-    "Select: Touch thumb tip with middle finger tip",
-    "Write: Touch thumb tip with index finger tip and move",
-    "Wait: Apart thumb"
+    "Color Selection: Touch the color panels at the top with your left-hand index finger tip",
+    "Drawing: Touch the tip of your right-hand index finger to your right thumb tip and move your hand to draw",
+    "Clear Screen: Move your left-hand index finger over the 'Clear Screen' area",
+    "Wait: Keep the thumb apart from the index fingers"
 ]
 
 def getColor(x, y):
@@ -181,7 +182,7 @@ def main():
             for i in range(len_instruction):
               cv2.putText(image, instructions[len_instruction - 1 - i], (10, h - 10 - 20 * i), cv2.FONT_HERSHEY_COMPLEX, 0.5, COLOR.WHITE, 1)
             color_name, color_code  = selected_color
-            cv2.putText(image, f"colour: {color_name}", (600, h-25), cv2.FONT_HERSHEY_COMPLEX, 0.5, color_code, 1)
+            cv2.putText(image, f"colour: {color_name}", (w - 150, h-25), cv2.FONT_HERSHEY_COMPLEX, 0.5, color_code, 1)
             
             output = cv2.addWeighted(image, 1, canvas, 1, 0.9)
             cv2.imshow('Paint App', output)
